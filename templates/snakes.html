@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block subtitle %} SNAKES! {% endblock %}
+{% block content %}
+    {% for record in data %}
+        <div class="container">
+        <div class="column">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ record.commonName }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Species: {{ record.species }}</h6>
+                    <p class="table-condensed">Scientific Name: {{ record.scientificName }}</p>
+                    <p class="card-text">Fun Fact: {{ record.comments }}</p>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Does this snake fly?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>Does not fly <span class="text-success"> (safe)</span></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+{% endblock %}
